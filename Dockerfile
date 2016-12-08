@@ -1,12 +1,16 @@
 FROM daspanel/alpine-base
 MAINTAINER Abner G Jacobsen - http://daspanel.com <admin@daspanel.com>
 
-ENV TZ="UTC"
+# Set default env variables
+ENV \
+    # Stop container initialization if error occurs in cont-init.d, fix-attrs.d script's
+    S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
 
-# Stop container initialization if error occurs in cont-init.d fix-attrs.d script's
-ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
+    # Timezone
+    TZ="UTC" \
 
-LABEL php_version="5.6" architecture="amd64"
+    # S6 overlay version
+    S6_OVERLAY_VERSION=v1.18.1.5chitecture="amd64"
 
 ARG PHP_MODULES="php5-ctype php5-curl php5-dom php5-gd php5-iconv php5-intl \
     php5-json php5-mcrypt php5-memcache php5-mysql php5-mysqli php5-openssl \
