@@ -5,12 +5,12 @@ log_level = {{ envString "LOG_LEVEL" }}
 daemonize = no
 
 [www]
-user = nobody
-group = nobody
+user = daspanel
+group = daspanel
 
 listen = 0.0.0.0:9000
-listen.owner = nobody
-listen.group = nobody
+listen.owner = daspanel
+listen.group = daspanel
 
 pm = ondemand
 pm.max_children = {{ envString "MAX_CHILDREN" }}
