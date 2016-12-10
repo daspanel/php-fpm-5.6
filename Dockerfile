@@ -7,11 +7,9 @@ ENV \
     S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
 
     # Timezone
-    TZ="UTC" \
+    TZ="UTC" 
 
-    # S6 overlay version
-    S6_OVERLAY_VERSION=v1.18.1.5chitecture="amd64"
-
+# PHP modules to install
 ARG PHP_MODULES="php5-ctype php5-curl php5-dom php5-gd php5-iconv php5-intl \
     php5-json php5-mcrypt php5-memcache php5-mysql php5-mysqli php5-openssl \
     php5-pdo php5-pdo_mysql php5-pdo_pgsql php5-pdo_sqlite php5-pear \
