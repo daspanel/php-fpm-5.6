@@ -1,26 +1,15 @@
-
 version: '2'
 services:
     daspanel-php-fpm-5.6:
-        build:
-            context: .
-            dockerfile: Dockerfile
         image: daspanel/php-fpm-5.6
         volumes:
-            - daspanel-data:/opt/daspanel/data
+            - ./data:/opt/daspanel/data
         networks:
-            - frontend
             - backend
         env_file:
             - daspanel.env
         ports:
             - "9000"
-
-volumes:
-    daspanel-data:
-        external:
-            name: daspanel-data
-
 networks:  
   frontend:
     driver: bridge

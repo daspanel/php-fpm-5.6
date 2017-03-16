@@ -37,13 +37,13 @@ fi
 export PHP_CHDIR="/opt/daspanel/data/$DASPANEL_GUUID/content"
 export PHP_SESSION_PATH="/opt/daspanel/data/$DASPANEL_GUUID/sessions"
 
-/usr/bin/templater -d -p php \
-  -o /etc/php5/php.ini \
-  /opt/daspanel/conf-templates/etc/php5/php.ini.tmpl
+/usr/bin/gomplate -d cfg=file:///opt/daspanel/data/$DASPANEL_SYS_UUID/db/sysconfig.json \
+  < /opt/daspanel/conf-templates/etc/php5/php.ini.tmpl \
+  > /etc/php5/php.ini
 
-/usr/bin/templater -d -p php \
-  -o /etc/php5/php-fpm.conf \
-  /opt/daspanel/conf-templates/etc/php5/php-fpm.conf.tmpl
+/usr/bin/gomplate -d cfg=file:///opt/daspanel/data/$DASPANEL_SYS_UUID/db/sysconfig.json \
+  < /opt/daspanel/conf-templates/etc/php5/php-fpm.conf.tmpl \
+  > /etc/php5/php-fpm.conf
 
 # secure daspanel
 chown -R daspanel:daspanel /opt/daspanel/data
